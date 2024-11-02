@@ -1,24 +1,7 @@
-import os	
-import agentops
-from dotenv import load_dotenv
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import DirectoryReadTool, FileReadTool
-from langchain_groq import ChatGroq
-load_dotenv()
-agentops.init(api_key=os.getenv("AGENTOPS_API_KEY"))
-# os.environ["OPENAI_API_KEY"] = os.getenv("GROQ_API_KEY")
-# os.environ["OPENAI_MODEL_NAME"] = "llama8b-8192"
-# os.environ["OPENAI_API_BASE"] = "https://api.groq.com/openai/v1"
-# groq_llm = ChatGroq(
-#             temperature=0.1, 
-#             # model_name="llama70b-8192"
-#         )
 
-# llm_llama70b = ChatGroq(model_name="llama70b-8192")
-# llm_mixtral = ChatGroq(model_name="mixtral-8x7b-32768")
-# llm_llama8b = ChatGroq(model_name="llama8b-8192")
-# llm_gemma2 = ChatGroq(model_name="gemma2-9b-it")
 
 @CrewBase
 class ReadmeCrew():
@@ -28,7 +11,6 @@ class ReadmeCrew():
 	def explorer_agent(self) -> Agent:
 		"""Agent to explore the project directory and list its files."""
 		return Agent(
-			#llm=groq_llm,
 			config=self.agents_config['explorer_agent'],
 			tools=[DirectoryReadTool(), FileReadTool()],
 			# tools=[MyCustomTool()], # Example of custom tool, loaded on the beginning of file
@@ -39,7 +21,6 @@ class ReadmeCrew():
 	def analyzer_agent(self) -> Agent:
 		"""Agent to analyze the project directory and generate a summary."""
 		return Agent(
-			# llm=groq_llm,
 			config=self.agents_config['analyzer_agent'],
 			tools=[DirectoryReadTool(), FileReadTool()],
 			verbose=True
@@ -49,9 +30,7 @@ class ReadmeCrew():
 	def writer_agent(self) -> Agent:
 		"""Agent to write the README file."""
 		return Agent(
-			# llm=groq_llm,
 			config=self.agents_config['writer_agent'],
-			# tools=[FileReadTool()],
 			verbose=True
 		)
   
@@ -59,9 +38,7 @@ class ReadmeCrew():
 	def translator_agent(self) -> Agent:
 		"""Agent to translate the README file to Spanish."""
 		return Agent(
-			# llm=groq_llm,
 			config=self.agents_config['translator_agent'],
-			# tools=[FileReadTool()],
 			verbose=True
 		)
 
@@ -90,7 +67,6 @@ class ReadmeCrew():
 		"""Task to write the README file."""
 		return Task(
 			config=self.tasks_config['write_readme_task'],
-			# tools=[FileReadTool()],
 			output_file='3-README.md'
 		)
 
@@ -99,7 +75,6 @@ class ReadmeCrew():
 		"""Task to translate the README file to Spanish."""
 		return Task(
 			config=self.tasks_config['translate_readme_task'],
-			# tools=[DirectoryReadTool(), FileReadTool()],
 			output_file='4-README_es.md'
 		)
 
