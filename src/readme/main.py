@@ -12,7 +12,7 @@ def run():
     Run the crew.
     """
     inputs = {
-        'directory_path': 'C:/Users/Luciano/PycharmProjects/crewai_readme/readme/src/readme'
+        'directory_path': 'C:/path/to/your/project'
     }
     ReadmeCrew().crew().kickoff(inputs=inputs)
 
