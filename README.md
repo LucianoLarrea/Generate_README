@@ -41,8 +41,8 @@ To set up the Project README Generator, you can use **Poetry** for dependency ma
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/project-readme-generator.git
-   cd project-readme-generator
+   git clone https://github.com/LucianoLarrea/Generate_README.git
+   cd Generate_README
    ```
 
 2. **Install Poetry (if not already installed):**
