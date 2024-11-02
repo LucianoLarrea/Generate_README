@@ -1,0 +1,37 @@
+explore_task:
+  description: >
+    Explore the project directory at {directory_path} and locate files.
+    Generate a list of these files with brief descriptions of their purpose.
+  expected_output: >
+    A list of files and their descriptions, or an alternative approach if no files are found.
+  agent: explorer_agent
+
+analyze_project_task:
+  description: >
+    Analyze the files and directories in the project at {directory_path} to understand its structure, execution logic, overall purpose, and any key files or components. 
+    Generate a detailed summary explaining:
+    1. The main purpose of the project.
+    2. How the project is executed and its primary functionalities.
+    3. Key components and files and their roles.
+  expected_output: >
+     A structured summary that includes the project's purpose, execution flow, and descriptions of key components.
+  agent: analyzer_agent
+
+write_readme_task:
+  description: >
+    Using the detailed project summary provided, draft a comprehensive README.md. The README should include:
+    1. A clear and concise overview of the project’s purpose.
+    2. A description of how the project works, covering its main execution logic.
+    3. A list of key files and components, with brief explanations of each.
+    4. Installation, usage, and configuration instructions (using Poetry and pyproject.toml).
+  expected_output: >
+     A complete, well-structured README.md file with an overview, project purpose, execution details, key files, and setup instructions.
+  agent: writer_agent
+
+translate_readme_task:
+  description: >
+    Take the generated content in the README.md file and translate it into Spanish.
+    Ensure technical accuracy in the translation, making it clear and appropriate for Spanish-speaking users.
+  expected_output: >
+    A README_es.md file containing the README.md content translated into Spanish, preserving clarity and technical context.
+  agent: translator_agent

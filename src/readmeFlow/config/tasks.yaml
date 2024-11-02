@@ -1,0 +1,16 @@
+explore_task:
+  description: >
+    Explora el directorio del proyecto {directory_path} y encuentra archivos.
+    Genera una lista de estos archivos con descripciones breves de su propósito.
+  expected_output: >
+    Una lista de archivos y sus descripciones o cambio de estrategia si no se encuentran.
+  agent: explorer_agent
+
+analyze_project_task:
+  description: >
+    Analizar los archivos y directorios del proyecto {directory_path} para comprender la estructura, la lógica de ejecución y el propósito general del proyecto. 
+    Generar un resumen que describa cómo funciona el proyecto y para qué sirve.
+  expected_output: >
+    Un resumen detallado que explique la lógica de ejecución del proyecto y su propósito, en un formato claro y conciso.
+  agent: analyzer_agent
+
