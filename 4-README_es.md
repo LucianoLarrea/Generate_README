@@ -42,7 +42,7 @@ Para configurar el Generador de README de Proyecto, puedes usar **Poetry** para 
 1. **Clona el repositorio:**
    ```bash
    git clone https://github.com/yourusername/project-readme-generator.git
-   cd project-readme-generator
+   cd Generate_README
    ```
 
 2. **Instala Poetry (si aún no está instalado):**
